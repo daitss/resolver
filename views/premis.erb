@@ -1,0 +1,40 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<premis xmlns="info:lc/xmlns/premis-v2">
+  
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>URI</eventIdentifierType>
+      <eventIdentifierValue><%= @event_id %></eventIdentifierValue>
+    </eventIdentifier>
+    <eventType>XML Resolution</eventType>
+    <eventDateTime><%= Time.now.xmlschema %></eventDateTime>
+    <eventOutcomeInformation>
+      <eventOutcome><%= @outcome %></eventOutcome>
+      <eventOutcomeDetail>
+        <eventOutcomeDetailExtension>
+          <% @broken_links.each do |link, ext| %>
+          <broken_link type="<%= ext[0] %>"><%= link %></broken_link>
+          <% end %>
+        </eventOutcomeDetailExtension>
+      </eventOutcomeDetail>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>info:fda/daitss/resolver/v<%= RESOLVER_VERSION %></linkingAgentIdentifierValue>
+    </linkingAgentIdentifier>
+    <linkingObjectIdentifier>
+      <linkingObjectIdentifierType>URI</linkingObjectIdentifierType>
+      <linkingObjectIdentifierValue><%= @event_id %></linkingObjectIdentifierValue>
+    </linkingObjectIdentifier>
+  </event>
+  
+  <agent>
+    <agentIdentifier>
+      <agentIdentifierType>URI</agentIdentifierType>
+      <agentIdentifierValue>info:fda/daitss/resolver/v<%= RESOLVER_VERSION %></agentIdentifierValue>
+    </agentIdentifier>
+    <agentName>daitss resolver service (Version <%= RESOLVER_VERSION %>)</agentName>
+    <agentType>web service</agentType>
+  </agent>
+
+</premis>
