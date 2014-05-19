@@ -1,6 +1,5 @@
 app_file = File.join(File.dirname(__FILE__), *%w[.. .. app.rb])
 require app_file
-
 Sinatra::Application.app_file = app_file
 
 require 'rspec/expectations'
@@ -17,7 +16,7 @@ class MyWorld
   include Webrat::Matchers
   
   Webrat::Methods.delegate_to_session :response_code, :responde_body
-  
+  #Webrat::SinatraSession.new
   def app
     Sinatra::Application
   end

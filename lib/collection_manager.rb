@@ -62,7 +62,7 @@ class CollectionManager
     end
   end
   
-  ##serve manifest##
+  ##create manifest file##
   def manifest dir, ieid
     path = (File.join(dir, ieid))
     template_file = File.open("views/manifest_collection.erb", 'r').read
@@ -75,7 +75,12 @@ class CollectionManager
     ensure
       file.close
     end
-     
+  end
+  
+  #display manifest#
+  def viewManifest ieid
+    template_file = File.open("views/manifest_collection.erb", 'r').read
+    ERB.new(template_file).result(binding)
   end
   
 end

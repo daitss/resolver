@@ -8,7 +8,6 @@ gem 'sinatra'
 gem 'rack'
 gem 'log4r'
 gem 'builder'
-gem 'archive-tar'
 gem 'uuid'
 
 gem "datyl", :git => "git://github.com/daitss/datyl.git"
@@ -16,10 +15,8 @@ gem "datyl", :git => "git://github.com/daitss/datyl.git"
 # development
 
 gem 'rake'
-#gem 'rcov'
 gem 'rspec'
 gem 'cucumber'
-gem 'json'
 gem 'thin'
 gem 'rack-test'
 gem 'webrat'
