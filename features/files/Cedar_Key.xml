@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<?fcla fda="yes"?>
+<?fcla dl="no"?>
+<!--  Cedar Key ( Photograph ) -->
+<METS:mets OBJID="Cedar_Key"
+  xmlns:METS="http://www.loc.gov/METS/"
+  xmlns:mods="http://www.loc.gov/mods/v3"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:daitss="http://www.fcla.edu/dls/md/daitss/"
+  xsi:schemaLocation="http://www.loc.gov/METS/
+    http://www.loc.gov/standards/mets/mets.xsd 
+    http://www.loc.gov/mods/v3
+    http://www.loc.gov/mods/v3/mods-3-4.xsd
+    http://www.fcla.edu/dls/md/daitss/
+    http://www.fcla.edu/dls/md/daitss/daitss.xsd
+">
+<METS:metsHdr CREATEDATE="2011-10-31T11:42:26Z" ID="Cedar_Key" LASTMODDATE="2011-10-31T11:42:26Z" RECORDSTATUS="COMPLETE">
+<METS:agent ROLE="CREATOR" TYPE="ORGANIZATION"> 
+<METS:name>FDA,Florida Digital Archive</METS:name>
+</METS:agent>
+<METS:agent OTHERTYPE="SOFTWARE" ROLE="CREATOR" TYPE="OTHER"> 
+<METS:name>SobekCM Metadata Template</METS:name>
+</METS:agent>
+<METS:agent ROLE="CREATOR" TYPE="INDIVIDUAL"> 
+<METS:name>Jennifer Childree</METS:name>
+</METS:agent>
+</METS:metsHdr>
+<METS:dmdSec ID="DMD1">
+<METS:mdWrap MDTYPE="MODS"  MIMETYPE="text/xml" LABEL="MODS Metadata">
+<METS:xmlData>
+<mods:mods>
+<mods:abstract lang="English">Photographs of the Gulf Coast near Shell Mounds and Cedar Key</mods:abstract>
+<mods:accessCondition>All rights reserved by the source institution</mods:accessCondition>
+<mods:genre>Photographs</mods:genre>
+<mods:name>
+<mods:namePart>Jennifer Childree</mods:namePart>
+</mods:name>
+<mods:originInfo>
+<mods:dateIssued>2006</mods:dateIssued>
+</mods:originInfo>
+<mods:recordInfo>
+<mods:recordContentSource>Florida Digital Archive</mods:recordContentSource>
+</mods:recordInfo>
+<mods:relatedItem type="original">
+<mods:physicalDescription>
+<mods:extent>Photographs of Shell Mounds</mods:extent>
+</mods:physicalDescription>
+</mods:relatedItem>
+<mods:subject>
+<mods:topic>Photographs, Cedar Key, Shell Mounds, Water, Gulf Coast of Florida, Florida Natural History</mods:topic>
+</mods:subject>
+<mods:titleInfo>
+<mods:title>Cedar Key</mods:title>
+</mods:titleInfo>
+<mods:typeOfResource>still image</mods:typeOfResource>
+</mods:mods>
+</METS:xmlData>
+</METS:mdWrap>
+</METS:dmdSec>
+<METS:amdSec>
+<METS:digiprovMD ID="AMD_DAITSS">
+<METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="DAITSS">
+<METS:xmlData>
+<daitss:daitss>
+<daitss:AGREEMENT_INFO ACCOUNT="ACT" PROJECT="PRJ"/>
+</daitss:daitss>
+</METS:xmlData>
+</METS:mdWrap>
+</METS:digiprovMD>
+</METS:amdSec>
+<METS:fileSec> 
+<METS:fileGrp USE="reference" > 
+<METS:file GROUPID="G1" ID="JPEG1" MIMETYPE="image/jpeg" CHECKSUM="1a94b21d5ce03cebc1c6612dfe661980" CHECKSUMTYPE="MD5" SIZE="42086"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-25-06_1116.jpg" /> 
+</METS:file> 
+<METS:file GROUPID="G2" ID="JPEG2" MIMETYPE="image/jpeg" CHECKSUM="8b16d3473cb31f73ab647faf62c31b42" CHECKSUMTYPE="MD5" SIZE="13686"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-25-06_1117.jpg" /> 
+</METS:file> 
+<METS:file GROUPID="G3" ID="JPEG3" MIMETYPE="image/jpeg" CHECKSUM="ccf2725791eb1e5dcbd1c80e9bb5a23d" CHECKSUMTYPE="MD5" SIZE="19746"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-25-06_1900.jpg" /> 
+</METS:file> 
+<METS:file GROUPID="G4" ID="JPEG4" MIMETYPE="image/jpeg" CHECKSUM="ef584b382c93dabfe0072571f8a41b1e" CHECKSUMTYPE="MD5" SIZE="20942"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-25-06_1901.jpg" /> 
+</METS:file> 
+<METS:file GROUPID="G5" ID="JPEG5" MIMETYPE="image/jpeg" CHECKSUM="aeac6a9abfb441fd3023df00c532565b" CHECKSUMTYPE="MD5" SIZE="8110"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-25-06_1902.jpg" /> 
+</METS:file> 
+<METS:file GROUPID="G6" ID="JPEG6" MIMETYPE="image/jpeg" CHECKSUM="dfaa43941a0a16174e3153251f420478" CHECKSUMTYPE="MD5" SIZE="23182"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-26-06_1051.jpg" /> 
+</METS:file> 
+<METS:file GROUPID="G7" ID="JPEG7" MIMETYPE="image/jpeg" CHECKSUM="090f74b7718cd0140ed7a4c59c446647" CHECKSUMTYPE="MD5" SIZE="6346"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-26-06_1141.jpg" /> 
+</METS:file> 
+<METS:file GROUPID="G8" ID="JPEG8" MIMETYPE="image/jpeg" CHECKSUM="04acf3f1e0e01209dce12d08abf6c73b" CHECKSUMTYPE="MD5" SIZE="8890"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-26-06_1152.jpg" /> 
+</METS:file> 
+<METS:file GROUPID="G9" ID="JPEG9" MIMETYPE="image/jpeg" CHECKSUM="2fe439242e52f7416c6d05f2ec7d5fa7" CHECKSUMTYPE="MD5" SIZE="37126"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-26-06_1156.jpg" /> 
+</METS:file> 
+<METS:file GROUPID="G10" ID="JPEG10" MIMETYPE="image/jpeg" CHECKSUM="91ffa21b7b9c987afd4b7e204082a67d" CHECKSUMTYPE="MD5" SIZE="17054"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-26-06_1157.jpg" /> 
+</METS:file> 
+<METS:file GROUPID="G11" ID="JPEG11" MIMETYPE="image/jpeg" CHECKSUM="da319fb8eaffc8111c6487b8f0cb13d9" CHECKSUMTYPE="MD5" SIZE="58666"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-26-06_1204.jpg" /> 
+</METS:file> 
+<METS:file GROUPID="G12" ID="JPEG12" MIMETYPE="image/jpeg" CHECKSUM="6d1e76d08a475669048134fb88f354e7" CHECKSUMTYPE="MD5" SIZE="53598"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-26-06_1208.jpg" /> 
+</METS:file> 
+<METS:file GROUPID="G13" ID="JPEG13" MIMETYPE="image/jpeg" CHECKSUM="e3f616e2ce45dc15c4f07430ab16a21d" CHECKSUMTYPE="MD5" SIZE="49182"> 
+<METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="03-26-06_1213.jpg" /> 
+</METS:file> 
+</METS:fileGrp> 
+</METS:fileSec> 
+<METS:structMap ID="STRUCT1" TYPE="physical"> 
+<METS:div DMDID="DMD1" LABEL="Cedar Key" ORDER="0" TYPE="main"> 
+<METS:div ID="PDIV1" ORDER="1" TYPE="Main"> 
+<METS:div ID="PAGE1" ORDER="1" TYPE="Page"> 
+<METS:fptr FILEID="JPEG1" /> 
+</METS:div> 
+<METS:div ID="PAGE2" ORDER="2" TYPE="Page"> 
+<METS:fptr FILEID="JPEG2" /> 
+</METS:div> 
+<METS:div ID="PAGE3" ORDER="3" TYPE="Page"> 
+<METS:fptr FILEID="JPEG3" /> 
+</METS:div> 
+<METS:div ID="PAGE4" ORDER="4" TYPE="Page"> 
+<METS:fptr FILEID="JPEG4" /> 
+</METS:div> 
+<METS:div ID="PAGE5" ORDER="5" TYPE="Page"> 
+<METS:fptr FILEID="JPEG5" /> 
+</METS:div> 
+<METS:div ID="PAGE6" ORDER="6" TYPE="Page"> 
+<METS:fptr FILEID="JPEG6" /> 
+</METS:div> 
+<METS:div ID="PAGE7" ORDER="7" TYPE="Page"> 
+<METS:fptr FILEID="JPEG7" /> 
+</METS:div> 
+<METS:div ID="PAGE8" ORDER="8" TYPE="Page"> 
+<METS:fptr FILEID="JPEG8" /> 
+</METS:div> 
+<METS:div ID="PAGE9" ORDER="9" TYPE="Page"> 
+<METS:fptr FILEID="JPEG9" /> 
+</METS:div> 
+<METS:div ID="PAGE10" ORDER="10" TYPE="Page"> 
+<METS:fptr FILEID="JPEG10" /> 
+</METS:div> 
+<METS:div ID="PAGE11" ORDER="11" TYPE="Page"> 
+<METS:fptr FILEID="JPEG11" /> 
+</METS:div> 
+<METS:div ID="PAGE12" ORDER="12" TYPE="Page"> 
+<METS:fptr FILEID="JPEG12" /> 
+</METS:div> 
+<METS:div ID="PAGE13" ORDER="13" TYPE="Page"> 
+<METS:fptr FILEID="JPEG13" /> 
+</METS:div> 
+</METS:div> 
+</METS:div>
+</METS:structMap>
+</METS:mets>
