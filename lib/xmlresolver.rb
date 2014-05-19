@@ -4,7 +4,7 @@ class Resolver
   def get_schema dir, doc
 
     xmldoc = Nokogiri::XML::Document.parse(File.open(doc))
-    target = xmldoc.root.attributes["targetNamespace"] #target namespace if it exists
+    target = xmldoc.root.attributes["targetNamespace"] unless xmldoc.root.nil? #target namespace if it exists
   
     array = [] #array to hold working collection
   

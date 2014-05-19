@@ -2,12 +2,14 @@ class Resolver
 
   ##DTD and PI lookup methods##
   def get_dtd dir, doc
-    
+
     xmldoc = Nokogiri::XML::Document.parse(File.open(doc))
     
     array = [] #array to hold working collection
     
     xss = xmldoc.at_xpath('//processing-instruction("xml-stylesheet")') #gets processing instruction xml-stylesheet
+    
+    xss = xss.to_element.attribute('href').value unless xss.nil?
     
     dtdsys = xmldoc.internal_subset.system_id unless xmldoc.internal_subset.nil? #gets DTD location
     
@@ -19,8 +21,14 @@ class Resolver
     newarray = download(array, dir) unless array.nil? #download array of processing instructions
     newarray.each { |d| get_dtd dir, d} unless newarray.nil?
     newarray.each { |d| get_stylesheet dir, d} unless newarray.nil?
-
     
   end
 
+end
+
+#Extend Nokogiri to parse ProcessingInstruction#
+class Nokogiri::XML::ProcessingInstruction
+  def to_element
+    document.parse("<#{name} #{content}/>")
+  end
 end

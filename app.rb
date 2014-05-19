@@ -41,6 +41,8 @@ configure do
   disable :dump_errors
   set :environment, :production
   set :raise_errors, false
+  set :views, "#{File.dirname(__FILE__)}/views"
+  #set :public, "#{File.dirname(__FILE__)}/public"
   
   set :data_path, Dir.mktmpdir #top level directory to hold collections for retrieval
 

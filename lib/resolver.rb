@@ -56,6 +56,11 @@ class Resolver
       
       @outcome = eventOutcome
       manifest #add resolution manifest to collection manager
+    
+    #somethng unexpected happened
+    rescue Exception => e
+      Datyl::Logger.err "Internal Service Error - #{e.inspect} #{e.message}"
+      raise
     end
           
   end

@@ -10,7 +10,7 @@ class Resolver
 
     array.each_with_index do |loc, i| #for each schema location
       begin
-        uri = URI.parse(loc)
+        uri = URI.parse(URI.encode(loc))
         fname = File.basename(uri.path) #name of file to save
         path = File.join(dir, File.dirname(loc).gsub(':','/').gsub(%r{//+},'/')) #use url as path to store file
         
@@ -42,13 +42,12 @@ class Resolver
         else
           #puts "Fail to download #{loc} with response: #{response.code}"
           broken_links.store(uri,[types(ext), response.message])
-          raise if response.message == 'Connection refused - connect(2)'
+          raise ArgumentError if response.message == 'Connection refused - connect(2)'
         end
-      rescue ArgumentError => e #raise if limit is reached or if squid is down
+      rescue SocketError => e #if host is unreachable or any other connection error of this type
         broken_links.store(uri,[types(ext), e.message])
-        #raise if e.message == response.message == 'Connection refused - connect(2)'
-      #rescue Exception => e #something bad happened
-      #  broken_links.store(uri, [types(ext), e.message])
+      rescue ArgumentError => e #rescue if limit is reached or if squid is down
+        broken_links.store(uri,[types(ext), e.message])
       end
     end #end collection
     newarray
@@ -76,7 +75,7 @@ class Resolver
     when Net::HTTPRedirection
       redirect.store(uri,response['location'])
       #puts "Server response redirect at #{uri} with response: #{response.code}"
-      fetch(URI.parse(response['location']),ext, limit -1)
+      fetch(URI.parse(URI.encode(response['location'])),ext, limit -1)
     else
       response
     end
