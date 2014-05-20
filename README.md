@@ -24,19 +24,14 @@ XML Resolution does not handle targetNamespace and thus does not download nor ca
 Current state of Resolver
 -------------------------
   1. Downloads schemas, stylesheets and dtds and recusively checks for more dependancies.  
-  2. Does not have a test harness.
-  3. Does not have deployment script.
+  2. Includes a test harness written in gherkin (cucumber). All tests passed.
+  3. Deployment script has been used to deploy to development server.
   4. Environment and setup are otherwise exactly the same as xml resolution.  
-  5. Minor changes are required in core. Xmlres.rb will need a method to remove the collection from resolver service.
-     This method will be called from preserve.rb.  Cleanup on xml resolution is currently handled by making calls to 
-     collection class and checking to see how old the collections are.  This is probably not appropriate and should 
-     be handled by core.  Core should decide when the collections are no longer needed.
+  5. Changes made to core.  Core decides when the collections are no longer needed.
   6. Tempspace is cleaned on exit and by calling the appropriate cleanup method.
   
 TODO
 ----
-  1. Create test harness.
-  2. Test!
-  3. Create deploy script.
-  4. Deploy!  
+  1. Continue testing.
+  2. Deploy to production.
      
