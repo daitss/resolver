@@ -35,8 +35,6 @@ post '/ieids/:collection_id/' do |collection_id|
 
   rescue Errno::ECONNREFUSED => e #proxy error caught here
     halt 503, { 'Content-Type' => 'text/plain' }, "Proxy Server Down.\n"
-    content_type 'application/xml'
-    res.premis
   ensure
     tempfile.unlink if tempfile.respond_to? 'unlink'
   end
@@ -54,10 +52,10 @@ post '/' do
   file_url = "file://#{client}/#{collection_id}/#{filename.gsub(%r(^/+), '')}"
   res = Resolver.new tempfile, collection_id, settings.data_path, file_url
 
-  tarball = @@collections.retrieve collection_id
-  man = @@collections.viewManifest collection_id
-  @@collections.remove tarball, collection_id
+  #tarball = @@collections.retrieve collection_id
+  #man = @@collections.viewManifest collection_id
+  #@@collections.remove tarball, collection_id
   content_type 'text/xml'
-  #res.premis
-  man
+  res.premis
+  #man
 end

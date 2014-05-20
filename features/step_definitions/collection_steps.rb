@@ -11,7 +11,8 @@ REDIRECTFILE = "#{path}/stylesample.xsl"
 @res
 @collections
 @collection_id
-                 
+
+
 #tarball = @@collections.retrieve collection_id
 #@@collections.remove tarball, collection_id
 #content_type 'text/xml'

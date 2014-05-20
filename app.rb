@@ -47,7 +47,7 @@ configure do
   
   set :data_path, Dir.mktmpdir #top level directory to hold collections for retrieval
   @@proxy = config.resolver_proxy
-  
+
   Datyl::Logger.setup('XmlResolution', ENV['VIRTUAL_HOSTNAME'])
   
   if not (config.log_filename or config.log_syslog_facility)
