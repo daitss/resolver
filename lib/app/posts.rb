@@ -9,9 +9,9 @@ post '/ieids/:collection_id/' do |collection_id|
 
   begin
 
-    raise Http400, "Missing form data name='xmlfile'"    unless params['xmlfile']
-    raise Http400, "Missing form data filename='...'"    unless filename = params['xmlfile'][:filename]
-    raise Http500, "Data unavailable (missing tempfile)" unless tempfile = params['xmlfile'][:tempfile]
+    error 400, "Missing form data name='xmlfile'"    unless params['xmlfile']
+    error 400, "Missing form data filename='...'"    unless filename = params['xmlfile'][:filename]
+    error 500, "Data unavailable (missing tempfile)" unless tempfile = params['xmlfile'][:tempfile]
 
     client = env['REMOTE_ADDR']
 
@@ -32,9 +32,11 @@ post '/ieids/:collection_id/' do |collection_id|
     status = 201  
     content_type 'application/xml'
     res.premis #serve report here
-  rescue
-    rc = 503
-    break;
+
+  rescue Errno::ECONNREFUSED => e #proxy error caught here
+    halt 503, { 'Content-Type' => 'text/plain' }, "Proxy Server Down.\n"
+    content_type 'application/xml'
+    res.premis
   ensure
     tempfile.unlink if tempfile.respond_to? 'unlink'
   end
@@ -53,7 +55,9 @@ post '/' do
   res = Resolver.new tempfile, collection_id, settings.data_path, file_url
 
   tarball = @@collections.retrieve collection_id
+  man = @@collections.viewManifest collection_id
   @@collections.remove tarball, collection_id
   content_type 'text/xml'
-  res.premis
+  #res.premis
+  man
 end

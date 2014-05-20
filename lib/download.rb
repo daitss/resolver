@@ -7,6 +7,10 @@ class Resolver
   def download(array, dir)
 
     newarray = []
+    
+    #set proxy
+    @proxy_addr, @proxy_port = @@proxy.split(':', 2) unless @@proxy.nil?
+    @proxy_port = @proxy_port.nil? ? 3128 : @proxy_port.to_i
 
     array.each_with_index do |loc, i| #for each schema location
       begin
@@ -35,19 +39,17 @@ class Resolver
             file.write(response.body)
             checksum.store(fname, digest)
             newarray << fname
-            #puts "    #{File.basename(fname)} saved to #{path}"
           ensure
             file.close
           end
         else
-          #puts "Fail to download #{loc} with response: #{response.code}"
           broken_links.store(uri,[types(ext), response.message])
-          raise ArgumentError if response.message == 'Connection refused - connect(2)'
         end
-      rescue SocketError => e #if host is unreachable or any other connection error of this type
+      rescue SocketError => e #if host is unreachable
         broken_links.store(uri,[types(ext), e.message])
       rescue ArgumentError => e #rescue if limit is reached or if squid is down
         broken_links.store(uri,[types(ext), e.message])
+      #proxy errors (and more serious errors) are tossed up to resolver
       end
     end #end collection
     newarray
@@ -59,9 +61,10 @@ class Resolver
   def fetch(uri, ext, limit = REDIRECT_LIMIT)
   
     raise ArgumentError, 'HTTP redirect too deep' if limit == 0
-    
-    http = Net::HTTP.new(uri.host, uri.port)
+
+    http = Net::HTTP.new(uri.host, uri.port, @proxy_addr, @proxy_port)
     http.use_ssl = true if uri.instance_of? URI::HTTPS
+    
     response = http.get(uri.request_uri)
 
     case response
@@ -74,7 +77,6 @@ class Resolver
     
     when Net::HTTPRedirection
       redirect.store(uri,response['location'])
-      #puts "Server response redirect at #{uri} with response: #{response.code}"
       fetch(URI.parse(URI.encode(response['location'])),ext, limit -1)
     else
       response

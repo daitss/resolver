@@ -1,11 +1,11 @@
-<resolution time="<%= Time.now.xmlschema %>" outcome="<%= @outcome %>" file_name="<%= file_url %>">
+<resolution outcome="<%= @outcome %>" file_name="<%= file_url %>" time="<%= Time.now.xmlschema %>">
   <% @broken_links.each do |link, ext| %>
-          <schema status="unresolved" url="<%= link %>" type="<%= ext[0] %>" message="<%= ext[1] %>" />
+          <resource status="broken" url="<%= link %>" type="<%= ext[0] %>" message="<%= ext[1] %>" />
   <% end %>
   <% @redirect.each do |link, to_link| %>
-          <schema status="redirected" url="<%= link %>" redirect_url="<%= to_link %>" />
+          <resource status="redirected" url="<%= link %>" redirect_url="<%= to_link %>" />
   <% end %>
   <% @checksum.each do |link, digest| %>
-          <schema status="successful" url="<%= link %>" checksum="<%= digest %>" />
+          <resource status="successful" url="<%= link %>" checksum="<%= digest %>" />
   <% end %>
 </resolution>

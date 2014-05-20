@@ -11,17 +11,17 @@ require_relative 'dtdresolver'
 require_relative 'download'
 require_relative 'tar'
 require_relative 'stylesheetresolver'
-require_relative 'exceptions'
+
 
 include Util::Tar
 
 class Resolver
 
-  attr_reader :doc, :broken_links, :checksum, :redirect, :ieid, :data_path, :event_id, :file_url
+  attr_reader :doc, :broken_links, :checksum, :redirect, :ieid, :data_path, :event_id, :file_url, :proxy_addr, :proxy_port
   attr_accessor :outcome
   
   ##constructor method##
-  def initialize doc, ieid, data_path, file_url
+  def initialize doc, ieid, data_path, file_url, proxy = nil
     @doc = doc
     @file_url = file_url
     @ieid = ieid
@@ -30,6 +30,7 @@ class Resolver
     @checksum = {} #hashes of successful uri links and checksums
     @data_path = data_path
     @event_id = 'file://' + File.dirname(@doc) + '/xmlresolution/events/' + UUID.generate
+    
     #revolve this file!
     resolve
   end
@@ -57,10 +58,12 @@ class Resolver
       @outcome = eventOutcome
       manifest #add resolution manifest to collection manager
     
-    #somethng unexpected happened
+    #proxy is down
+    rescue Errno::ECONNREFUSED => e
+      raise Errno::ECONNREFUSED, e.message
+    #something more serious happened
     rescue Exception => e
       Datyl::Logger.err "Internal Service Error - #{e.inspect} #{e.message}"
-      raise
     end
           
   end

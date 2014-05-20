@@ -45,7 +45,6 @@ end
 When(/^I create a collection$/) do
   @collections = CollectionManager.instance
   @collections.data_path = app.settings.data_path
-  #tarball = @collections.retrieve @collection_id
 end
 
 Then(/^I should have a manifest list$/) do

@@ -15,6 +15,7 @@ RESOLVER_VERSION = 1 #maybe something fancier in the future :)
 REDIRECT_LIMIT = 10 #how far down the rabbit hole are you willing to go?
 RESOURCE_LIMIT = 100 #when your dependancies have dependants things get expensive
 @@collections #global reference to collection manager
+@@proxy #global proxy settings
 
 def get_config
   raise ConfigurationError, "No DAITSS_CONFIG environment variable has been set, so there's no configuration file to read"             unless ENV['DAITSS_CONFIG']
@@ -45,7 +46,8 @@ configure do
   #set :public, "#{File.dirname(__FILE__)}/public"
   
   set :data_path, Dir.mktmpdir #top level directory to hold collections for retrieval
-
+  @@proxy = config.resolver_proxy
+  
   Datyl::Logger.setup('XmlResolution', ENV['VIRTUAL_HOSTNAME'])
   
   if not (config.log_filename or config.log_syslog_facility)
@@ -65,13 +67,12 @@ end
 
 
 begin
-  #load 'lib/app/helpers.rb'
   load 'lib/app/errors.rb'
   load 'lib/app/gets.rb'
   load 'lib/app/posts.rb'
   load 'lib/app/puts.rb'
   @@collections = CollectionManager.instance
-  @@collections.data_path = settings.data_path
+  @@collections.data_path = settings.data_path  
 rescue ScriptError => e
   Datyl::Logger.err "Initialization Error: #{e.message}"
 end
