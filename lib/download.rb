@@ -7,10 +7,6 @@ class Resolver
   def download(array, dir)
 
     newarray = []
-    
-    #set proxy
-    @proxy_addr, @proxy_port = @@proxy.split(':', 2) unless @@proxy.nil?
-    @proxy_port = @proxy_port.nil? ? 3128 : @proxy_port.to_i
 
     array.each_with_index do |loc, i| #for each schema location
       begin
@@ -59,12 +55,12 @@ class Resolver
   ###RECURSIVE FETCH METHOD###
   #Returns response or raises ArgumentError
   def fetch(uri, ext, limit = REDIRECT_LIMIT)
-  
+
     raise ArgumentError, 'HTTP redirect too deep' if limit == 0
 
-    http = Net::HTTP.new(uri.host, uri.port, @proxy_addr, @proxy_port)
+    http = Net::HTTP.new(uri.host, uri.port, @@proxy_addr, @@proxy_port)
     http.use_ssl = true if uri.instance_of? URI::HTTPS
-    
+    puts http.proxy?
     response = http.get(uri.request_uri)
 
     case response
