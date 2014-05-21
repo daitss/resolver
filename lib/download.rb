@@ -60,7 +60,7 @@ class Resolver
 
     http = Net::HTTP.new(uri.host, uri.port, @@proxy_addr, @@proxy_port)
     http.use_ssl = true if uri.instance_of? URI::HTTPS
-    puts http.proxy?
+
     response = http.get(uri.request_uri)
 
     case response
