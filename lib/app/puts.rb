@@ -16,7 +16,7 @@ end
 
 #Remove a tarfile associated with a collection_id
 
-put '/ieids/remove/:collection_id' do |collection_id|
+delete '/ieids/remove/:collection_id' do |collection_id|
   content_type 'text/plain'
 
   tarball = "#{settings.data_path}/#{collection_id}.tar"
