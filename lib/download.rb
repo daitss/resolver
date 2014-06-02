@@ -33,7 +33,7 @@ class Resolver
         
           begin
             file.write(response.body)
-            checksum.store(fname, digest)
+            checksum.store(uri, digest)
             newarray << fname
           ensure
             file.close
