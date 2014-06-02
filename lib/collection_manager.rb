@@ -15,14 +15,16 @@ class CollectionManager
     @ieids_manifest = {}
   end
   
-  ##prepare collection for retrieval by creating manifest.xml tarballing the collection##
+  ##prepare collection for retrieval by creating manifest.xml and tarballing the collection##
   def retrieve ieid
     dir = (File.join(data_path, ieid))
-    manifest dir, ieid
     
-    tarball dir, ieid #creates tarball in dir
-    FileUtils.mv "#{dir}/#{ieid}.tar", "#{data_path}/"
-    FileUtils.rm_r dir
+    if File.directory?("#{dir}/") #only create tarball if collection dir is there
+      manifest dir, ieid
+      tarball dir, ieid #creates tarball in dir
+      FileUtils.mv "#{dir}/#{ieid}.tar", "#{data_path}/"
+      FileUtils.rm_r dir
+    end
     return "#{data_path}/#{ieid}.tar"
   end
   

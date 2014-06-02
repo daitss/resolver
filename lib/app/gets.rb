@@ -15,6 +15,11 @@ get '/ieids/' do
   erb :list
 end
 
+get '/manifest/:collection_id' do |collection_id|
+  content_type 'text/xml'
+  @@collections.viewManifest(collection_id)
+end
+
 # Return a tarfile of all of the schemas we've collected for the documents submitted
 
 get '/ieids/:collection_id' do |collection_id|

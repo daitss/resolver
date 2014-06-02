@@ -24,3 +24,11 @@ delete '/ieids/remove/:collection_id' do |collection_id|
   @@collections.remove tarball, collection_id
   status 200
 end
+
+#browsers without html 5 do not support delete method - below method is used in gui
+post '/ieids/remove/:collection_id' do |collection_id|
+  tarball = "#{settings.data_path}/#{collection_id}.tar"
+  raise Http404, "No such IEID #{collection_id}" unless File.exist?(tarball)
+  @@collections.remove tarball, collection_id
+  redirect "/", 301
+end

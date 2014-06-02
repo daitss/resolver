@@ -3,12 +3,47 @@
     <title>Resolver Service</title>
   </head>
   <body>
-  <h1>Resolver Service</h1>
-  <p> Upload a file to the resolver service.  Returns an xml premis report.
-  </p>
-    <form action="/" method="POST" enctype="multipart/form-data">
-      <input type='file' name='xmlfile'>
-      <input type='submit' value='resolve'>
+    <h1>Resolver Service</h1>
+    <p>This interface is for testing purposes but can be used to debug and pre-test xml files prior to archiving.</p>
+    <p>After submitting a resource you will be taken to the premis document. You may return to this page and refresh to view the collection details.</p>
+    <form action="/" method="get">
+        <input type='submit' value='refresh page'>
     </form>
+      
+    <div>
+      <h3>Upload</h3>
+      <p> Upload an xml file to the resolver service.  Returns a premis report.</p>
+      <form action="/" method="POST" enctype="multipart/form-data">
+        <input type='file' name='xmlfile'>
+        <input type='submit' value='resolve'>
+      </form>
+    </div>
+    
+    <div>
+      <h3>Collections</h3>
+      <table>
+      <tr>
+        <th>Collection</th>
+        <th>Manifest</th>
+        <th>Tarball</th>
+      </tr>
+      <% @array = @@collections.listTar %>
+      <% @array.each do |x| %>
+        <% collection_id = File.basename(x, ".tar") %>
+        <% manifestLink = "<a href='/manifest/#{collection_id}'>Manifest</a>" %>
+        <% tarLink = "<a href='/ieids/#{collection_id}'>Tarball</a>" %>
+        <% deleteTar = "<form action='/ieids/remove/#{collection_id}' method='post' >
+            <input type='submit' value='remove'>
+          </form>" %>
+        <tr>
+          <td><%= File.basename(x) %></td>
+          <td><%= manifestLink %></td>
+          <td><%= tarLink %></td>
+          <td><%= deleteTar %></td>
+        </tr>
+      <% end %>
+    </table>
+    </div>
+    
   </body>
 </html>

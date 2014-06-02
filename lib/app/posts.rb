@@ -52,7 +52,7 @@ post '/' do
   file_url = "file://#{client}/#{collection_id}/#{filename.gsub(%r(^/+), '')}"
   res = Resolver.new tempfile, collection_id, settings.data_path, file_url
 
-  #tarball = @@collections.retrieve collection_id
+  tarball = @@collections.retrieve collection_id
   #man = @@collections.viewManifest collection_id
   #@@collections.remove tarball, collection_id
   content_type 'text/xml'
