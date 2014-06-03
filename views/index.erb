@@ -1,9 +1,18 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Resolver Service</title>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold,italic,bolditalic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
   </head>
   <body>
-    <h1>Resolver Service</h1>
+  
+  <div id="content">
+    <div id="header">
+      <h1>Resolver Service</h1>
+    </div>
     <p>This interface is for testing purposes but can be used to debug and pre-test xml files prior to archiving.</p>
     <p>After submitting a resource you will be taken to the premis document. You may return to this page and refresh to view the collection details.</p>
     <form action="/" method="get">
@@ -25,7 +34,7 @@
       <tr>
         <th>Collection</th>
         <th>Manifest</th>
-        <th>Tarball</th>
+        <th colspan="2">Tarball</th>
       </tr>
       <% @array = @@collections.listTar %>
       <% @array.each do |x| %>
@@ -44,6 +53,8 @@
       <% end %>
     </table>
     </div>
+   
+   </div> 
     
   </body>
 </html>
