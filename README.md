@@ -60,9 +60,3 @@ Current state of Resolver
   5. A collection space is cleaned up after creating a tarball.
   6. Changes made to Core - Core decides when the tarballed collections are no longer needed via HTTP DELETE.
   7. All collection tempspace is cleaned upon service exit.
-  
-TODO
-----
-  1. Continue testing.
-  2. Deploy to production.
-     
