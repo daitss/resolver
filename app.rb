@@ -10,7 +10,9 @@ require 'datyl/config'
 require 'datyl/logger'
 require 'fileutils'
 
-#resolver utility for looking up external document dependancies and downloading them
+#Resolver webservice for looking up external document dependancies and downloading them
+#This webservice is part of the daitss open-source software project
+#Initial author: Jonathan Pitts, 2014
 
 RESOLVER_VERSION = 1 #maybe something fancier in the future :)
 REDIRECT_LIMIT = 10 #how far down the rabbit hole are you willing to go?
