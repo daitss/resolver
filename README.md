@@ -1,6 +1,6 @@
 Resolver Service
 ================
-Optional service to replace XML Resolution.
+New xml resolver service for DAITSS.
 What this service does:
 
   1. Download external resources for a given file or files currently files associated with xml (xsd, xsl, dtd).
@@ -38,18 +38,18 @@ Requirements:
   
 Reasons for this project
 ------------------------
-  1. Smaller codebase over XML Resolution.
+  1. Smaller codebase over previous XML Resolution service.
   2. Better resolutions for targetNamespace.
   3. Easier to implement enhancements and more maintainable code.
      * Desirable enchancement would retrieve and tarball html resources such as js, fonts, images.
-  4. In XML Resolution a poorly formed XML file can halt a package.  This should never happen.
+  4. In previous XML Resolution service a poorly formed XML file can halt a package.  This should never happen.
      * Ex. An element in xhtml such as this <! comment > is poorly formed and will cause a snafu. 
 
 Fixes over xml resolution
 -------------------------
-XML Resolution does not correctly handle stylesheets or import & include tags.
-XML Resolution parses namespace in DTD as a resource in some cases.
-XML Resolution does not handle targetNamespace and thus does not download nor catch those types of links.
+XML Resolution did not correctly handle stylesheets or import & include tags.
+XML Resolution parsed namespace in DTD as a resource in some cases.
+XML Resolution did not handle targetNamespace and thus does not download nor catch those types of links.
 
 Current state of Resolver
 -------------------------
@@ -60,3 +60,4 @@ Current state of Resolver
   5. A collection space is cleaned up after creating a tarball.
   6. Changes made to Core - Core decides when the tarballed collections are no longer needed via HTTP DELETE.
   7. All collection tempspace is cleaned upon service exit.
+  8. Resolver is currently deployed in production.
