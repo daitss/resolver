@@ -28,6 +28,6 @@ end
 
 get '/ieids/:collection_id/' do |collection_id|
   tarball = @@collections.retrieve collection_id
-  raise Http404, "No such IEID #{collection_id}" unless File.exist?(tarball)
+  error 404, "No such IEID #{collection_id}" unless File.exist?(tarball)
   send_file tarball
 end
